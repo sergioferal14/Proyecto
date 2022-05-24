@@ -1,0 +1,103 @@
+
+<div class="mt-4 max-w-7xl mx-auto sm:px-6 lg:px-8 container">
+    <div class="my-2 grid md:grid-cols-3 mb-5">
+        <div class="flex-1">
+            <div class="flex ">
+                <div class=" xl:w-96 ml-6">
+                  <div class="input-group relative flex flex-wrap items-stretch w-full mb-4">
+                    <input type="search" wire:model="search" class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+                    <button class="btn inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center" type="button" id="button-addon2">
+                        <i class="fa-solid fa-magnifying-glass text-base"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="heading">
+            <h1 class="font-bold">Selecciona un Equipo</h1>
+        </div>
+        <div class="flex-2">
+            @livewire('create-team')
+        </div>
+    </div>
+    @if ($teams->count())
+    <div class="grid mx-auto lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+        @foreach ($teams as $item)
+                <div class="card">
+                    <a href="{{ route('players.index',$item) }}">
+                    <div class="card-header">
+                        <img src="{{ asset('storage/'.$item->escudo) }}" style="height:175px; width:175px" class="mx-auto">
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            {{ $item->nombre }}
+                        </p>
+                    </a>
+                        <div class="btns">
+                          <button wire:click="edit({{ $item }})"
+                            class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-3 m-2 rounded">
+                            <i class="fa-solid fa-edit"></i>Editar</button>
+                        <button wire:click="borrar({{ $item }})"
+                            class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-3 rounded">
+                            <i class="fa-solid fa-trash"></i>Borrar</button>  
+                        </div>
+                    </div>
+                </div>
+        @endforeach
+    </div>
+    @else
+        <div class="mt-2 text-center font-bold text-lg">No se enconcotró ningún equipo.</div>
+    @endif
+    <div class="mt-2 mb-4">
+        {{$teams->links()}}
+    </div>
+    <x-jet-dialog-modal wire:model="isOpen">
+        <x-slot name="title" >
+           <h3 class="font-bold">Editar Equipo</h3>
+           <a class="ml-auto" wire:click="$set('isOpen', false)"><i class="fa-solid fa-xmark" ></i></a>
+        </x-slot>
+        <x-slot name="content">
+            <x-jet-label value="Nombre del Equipo" />
+            <x-jet-input type="text" placeholder="Nombre" class="mt-2 w-full" wire:model.defer="team.nombre" />
+            <x-jet-input-error for="team.nombre" />
+            <!-- Para la Imagen -->
+            <div class="grid mt-2 grid-cols-2 gap-4">
+                <div>
+                    <div class="flex justify-center">
+                        <div class="mt-4">
+                            <x-jet-label value="Escudo del Equipo" />
+                            <input
+                                class="form-control block w-full px-3
+                                py-1.5
+                                text-base
+                                text-gray-700
+                                bg-white bg-clip-padding
+                                border border-solid border-gray-300
+                                rounded transition ease-in-out
+                                m-0
+                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                type="file" wire:model="escudo" accept="image/*">
+                            <x-jet-input-error for="escudo" />
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <!-- Pintaremosla imagen por defecto o la imagen elegida-->
+                    @if ($escudo)
+                        <img src="{{ $escudo->temporaryUrl() }}" class="object-cover object-center w-50" style="margin-left: 70px">
+                    @else
+                        <img src="{{ asset('storage/'.$team->escudo) }}" class="object-cover object-center w-50 " style="margin-left: 70px">
+                    @endif
+                </div>
+            </div>
+        </x-slot>
+        <x-slot name="footer">
+            <button wire:click="update"
+                    class="bg-yellow-500 hover:bg-yellow-700 text-white py-2 px-4 rounded">
+                                    <i class="fas fa-edit"></i> Editar</button>
+                                    <button wire:click="$set('isOpen', false)"
+                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2">
+                    <i class="fa-solid fa-angles-left"></i> Volver</button>
+        </x-slot>
+    </x-jet-dialog-modal>
+</div>

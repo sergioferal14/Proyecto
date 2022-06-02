@@ -15,6 +15,7 @@ class ShowSesion extends Component
     use WithFileUploads;
 
     public $search="";
+    public $search2="";
     public $isOpen=false;
     public Team $team;
     public Sesion $sesion;
@@ -34,11 +35,10 @@ class ShowSesion extends Component
     public function render()
     {
         $teams=Team::orderby('nombre')->where('user_id', auth()->user()->id)->get();
-
-        $sesions = Sesion::orderBy('fecha')->where('user_id', auth()->user()->id)
-            ->where('nombre', 'like', "%" . $this->search . "%" )
-            ->orwhere('team_id', 'like', "%" . $this->search . "%")
-            ->orwhere('fecha', 'like', "%" . $this->search . "%")->paginate(8);
+        $sesions = Sesion::orderBy('fecha')
+            ->where('user_id', auth()->user()->id)
+            ->where('nombre', 'like', "%" . $this->search . "%")
+            ->where('fecha', 'like', "%" . $this->search2 . "%")->paginate(8);
             return view('livewire.show-sesion', compact('sesions','teams'));
     }
 

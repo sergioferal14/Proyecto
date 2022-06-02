@@ -2,6 +2,7 @@
 
     <div class="mt-4 max-w-7xl mx-auto sm:px-6 lg:px-8 container">
         <div class="my-2 grid md:grid-cols-3 mb-5">
+            @if(!isset($sesion))
             <div class="flex-1">
                 <div class="flex ">
                     <div class=" xl:w-96 ml-6">
@@ -18,21 +19,22 @@
                     </div>
                 </div>
             </div>
+            @endif
 
-              <div class="mx-auto flex-2">
+              <div class="mx-auto " style="text-align:center">
                 <button class="bg-sky-700 hover:bg-sky-800 text-white font-bold py-2 px-4 rounded border-3 "
                     type="button" data-modal-toggle="modalCrear">
-                    <i class="fa-solid fa-plus"></i> Nuevo Ejercicio</button>
+                    <i class="fa-solid fa-plus"></i>@if(isset($sesion)) Añadir Ejercicio a {{$sesion->nombre}} @else Crear Nuevo Ejercicio @endif</button>
                 @include('ejercicios.create')
             </div>  
             
             
         </div>
         <!--Aqui empieza el contenedor de los dos espacios-->
-        <div class="grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 overflow-visible"
-            style="padding: 10px 30px 0; margin-left: 0;position: relative;overflow-x: hidden;flex-grow: 1; min-height:calc(100vh-266px)">
+        <div class="grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2"
+            style="padding: 10px 30px 0; margin-left: 0;position: relative;overflow-y: auto;overflow-x: hidden;flex-grow: 1; min-height:calc(100vh-266px)">
             <!--Aqui empieza el contenedor de  carpetas-->
-            @if($ejercicios->count()==0)
+            @if($ejercicios->count()==0 || $ejercicios->count()==1)
             <div class="md:col-span-3 lg:col-span-1 "
                 style="display: grid; grid-gap:0; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
             @else
@@ -273,26 +275,35 @@
                                             </div>
                                         </div>
                                         @if ($item->user_id == auth()->user()->id)
+
                                             <button wire:click="edit({{ $item }})"
-                                                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-3 m-2 rounded mx-auto "
+                                                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-3 m-2 rounded mx-auto lg:whitespace-nowrap"
                                                 style="width:50%;">
                                                 <i class="mr-1 fa-solid fa-edit"></i><span
                                                     class="icono">Editar</span></button>
+                                        
+
                                             @if(isset($sesion))
-                                                <button wire:click="borrar({{ $item }})"
-                                                class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-3 rounded mx-auto"
-                                                style="width:50%;">
+                                            <form action="{{ route('ejercicios.quitar', $item) }}" method="GET" enctype="multipart/form-data">
+                                                @csrf
+                                                <button 
+                                                class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-3 rounded mx-auto lg:whitespace-nowrap"
+                                                style="width:50%;" onclick="return confirm('Quitar el ejercicio {{ $item->nombre }} de la sesion {{$sesion->nombre}}?')">
                                                 <i class="fa-solid fa-right-from-bracket"
-                                                    onclick="return confirm('Quitar el ejercicio {{ $item->nombre }} de la sesion {{$sesion->nombre}}?')"></i><span
-                                                    class="icono">Quitar</span></button>
-                                            @else
-                                            <button wire:click="borrar({{ $item }})"
-                                            class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-3 rounded mx-auto"
-                                            style="width:50%;">
-                                            <i class="mr-1 fa-solid fa-trash"
-                                                onclick="return confirm('Borrar el ejercicio {{ $item->nombre }} permanentemente ?')"></i><span
-                                                class="icono">Borrar</span></button>
-                                            @endif
+                                                    ></i><span
+                                                    class="ml-1 icono">Quitar</span></button>
+                                            </form>
+                                                @else
+                                                <form action="{{ route('ejercicios.destroy', $item) }}" method="GET" enctype="multipart/form-data">
+                                                @csrf
+                                                    <button 
+                                                class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-3 rounded mx-auto lg:whitespace-nowrap"
+                                                style="width:50%;" onclick="return confirm('Borrar el ejercicio {{ $item->nombre }} permanentemente ?')">
+                                                <i class="mr-1 fa-solid fa-trash"
+                                                    ></i><span
+                                                    class="ml-1 icono">Borrar</span></button>
+                                                </form>
+                                                @endif
                                             
                                         @endif
                                     </div>

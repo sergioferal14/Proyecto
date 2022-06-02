@@ -1,10 +1,10 @@
 <div>
     <form action="{{ route('players.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="mx-w-sm card2 rounded bg-white shadow-lg ml-2  mr-6" style="border: solid 3px black">
+        <div class="mx-w-sm card2 rounded bg-white  ml-2  mr-6" style="border:solid 3px black">
             <div class="text-lg flex flex-row justify-top text-center" style="background-color: #0288d1;color:white;">
                 <h3 class="font-bold px-6 py-4 ">Nuevo Jugador del {{ $team->nombre }}</h3><img
-                    src="{{ asset('storage/' . $team->escudo) }}" class="mr-3 h-12 sm:h-12 mx-auto my-auto flex-end">
+                    src="{{ asset('storage/' . $team->escudo) }}" class="mr-3  mx-auto my-auto flex-end" style="width:50px;height:50px">
             </div>
             <div class="px-6 py-2">
                 <div

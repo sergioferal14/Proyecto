@@ -48,7 +48,11 @@ Route::middleware(['auth:sanctum', 'verified'])->post('players1{player}', "App\H
 
 Route::middleware(['auth:sanctum', 'verified'])->get('ejercicios/sesion/{sesion}', "App\Http\Controllers\EjercicioController@index")->name('ejercicio.index');
 Route::middleware(['auth:sanctum', 'verified'])->get('ejercicios/{tipo}', "App\Http\Controllers\EjercicioController@index1")->name('ejercicio.index1');
-Route::middleware(['auth:sanctum', 'verified'])->get('ejercicios1', "App\Http\Controllers\EjercicioController@index2")->name('ejercicio.index2');
-Route::middleware(['auth:sanctum', 'verified'])->get('ejercicios', "App\Http\Controllers\EjercicioController@index1")->name('ejercicios.store');
+Route::middleware(['auth:sanctum', 'verified'])->get('ejercicios', "App\Http\Controllers\EjercicioController@index2")->name('ejercicio.index2');
+Route::middleware(['auth:sanctum', 'verified'])->post('ejercicios', "App\Http\Controllers\EjercicioController@store")->name('ejercicios.store');
+Route::middleware(['auth:sanctum', 'verified'])->get('ejercicios/borrar/{ejercicio}', "App\Http\Controllers\EjercicioController@destroy")->name('ejercicios.destroy');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('ejercicios/quitado/{ejercicio}', "App\Http\Controllers\EjercicioController@quitar")->name('ejercicios.quitar');
+
 
 

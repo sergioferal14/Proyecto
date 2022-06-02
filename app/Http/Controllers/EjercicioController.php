@@ -54,6 +54,7 @@ class EjercicioController extends Controller
         ->tipoId($request->tipo_id)->paginate(3);
         $ejerciciosCont=Ejercicio::orderBy('created_at')->get()->groupBy('tipo_id');
         
+
         return view('ejercicios.index',compact('tipos','ejercicios','ejerciciosCont','ejerciciosPublicos','request'));
     }
 
@@ -107,8 +108,10 @@ class EjercicioController extends Controller
                 'img'=>$urlBuena
             ]);
         }
-        if($ejercicio->id){
-            return redirect()->route('ejercicio.index',$ejercicio->sesion_id)->with('crear', 'Ejercicio creado con éxito');
+        if($request->sesion_id){
+            return redirect()->route('ejercicio.index',$request->sesion_id)->with('crear', 'Ejercicio creado con éxito');
+        }else{
+            return redirect()->route('ejercicio.index1',$request->tipo_id)->with('crear', 'Ejercicio creado con éxito');
         }
 
     }
@@ -119,9 +122,17 @@ class EjercicioController extends Controller
      * @param  \App\Models\Ejercicio  $ejercicio
      * @return \Illuminate\Http\Response
      */
-    public function show(Ejercicio $ejercicio)
+    public function quitar(Ejercicio $ejercicio)
     {
-        //
+
+        $idSesion=$ejercicio->sesion_id;
+
+        $ejercicio->update([
+            'sesion_id'=>null
+        ]);
+
+        return redirect()->route('ejercicio.index',$idSesion)->with('borrar', "Ejercicio quitado.");
+
     }
 
     /**
@@ -155,6 +166,14 @@ class EjercicioController extends Controller
      */
     public function destroy(Ejercicio $ejercicio)
     {
-        //
+        
+        if(basename($ejercicio->img)!='noimage.jpg'){
+            Storage::delete($ejercicio->img);   
+           }
+
+        $id_tipo=$ejercicio->tipo_id;
+        $ejercicio->delete();
+        
+        return redirect()->route('ejercicio.index1',$id_tipo)->with('borrar', 'Ejercicio Borrado');
     }
 }

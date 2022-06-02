@@ -24,9 +24,8 @@
         background-size: cover;
         background-size: 100% 100%;
     }
-        </style>
+          </style>
     </head>
-    
     <body class="fondo">
         <div class="font-sans antialiased " >
             {{ $slot }}
@@ -69,16 +68,16 @@
               <p class="text-white font-semibold">Futbol Mater All Rights Reserved.</p>
             </div>
             <div class="flex justify-center lg:block">
-              <a href="https://www.facebook.com/profile.php?id=100081292145231" class="mr-6 text-white">
+              <a href="https://www.facebook.com/profile.php?id=100081292145231" target="_blank" class="mr-6 text-white">
                 <i class="fa-brands fa-facebook fa-lg"></i>
               </a>
-              <a href="https://twitter.com/FutbolMasterEmp" class="mr-6 text-white">
+              <a href="https://twitter.com/FutbolMasterEmp" target="_blank" class="mr-6 text-white">
                 <i class="fa-brands fa-twitter fa-lg"></i>
               </a>
-              <a href="https://www.instagram.com/futbolmasterfc/" class="mr-6 text-white">
+              <a href="https://www.instagram.com/futbolmasterfc/" target="_blank" class="mr-6 text-white">
                 <i class="fa-brands fa-instagram fa-lg"></i>
               </a>
-              <a href="https://www.linkedin.com/in/fútbol-máster-05564223a/" class="mr-6 text-white">
+              <a href="https://www.linkedin.com/in/fútbol-máster-05564223a/" target="_blank" class="mr-6 text-white">
                 <i class="fa-brands fa-linkedin-in fa-lg"></i>
               </a>
             </div>

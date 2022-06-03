@@ -1,12 +1,12 @@
 <div class="mt-4 max-w-7xl mx-auto sm:px-6 lg:px-8 container">
     <div class="my-2 grid md:grid-cols-3 mb-5">
-        <div class="mx-auto flex-1">
+        <div class="mx-auto">
             <div class="flex ">
                 <div class=" xl:w-96 ml-6">
                     <div class="input-group relative flex flex-wrap items-stretch w-full mb-4">
                         <input type="search" wire:model="search"
                             class=" mx-auto form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+                            placeholder="Buscar nombre" aria-label="Search" aria-describedby="button-addon2">
                         <button
                             class="btn inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
                             type="button" id="button-addon2">
@@ -16,10 +16,10 @@
                 </div>
             </div>
         </div>
-        <div class="heading">
-            <h1 class="font-bold">Mis Sesiones</h1>
+        <div class="mx-auto">
+            <input type="date"  id="fecha" wire:model="search2" name='fecha' class="rounded"/>
         </div>
-        <div class="mx-auto flex-2">
+        <div class="mx-auto">
                
             @livewire('create-sesion')
         </div>
@@ -74,7 +74,7 @@
 
         </div>
     @else
-        <div class="mt-2 mx-auto text-center font-bold text-lg">No se enconcotró ninguna sesión.</div>
+    <h3 style="border-radius: 10px;background-color:black;text-align: center;width: 50%;margin: auto;" class="mb-3 text-white font-bold p-2 text-xl">No se enconcotró ninguna sesión.</h3>
     @endif
     <div class="mt-2 mb-4">
         {{ $sesions->links() }}

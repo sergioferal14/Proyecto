@@ -13,9 +13,9 @@
                 </div>
               </div>
         </div>
-        <div class="heading">
-            <h1 class="font-bold">Selecciona un Equipo</h1>
-        </div>
+        
+        <h3 style="border-radius: 10px;background-color:black;text-align: center;margin: auto;" class="mb-3 text-white font-bold p-2 text-3xl">Selecciona un equipo</h3>
+        
         <div class="mx-auto flex-2">
             @livewire('create-team')
         </div>
@@ -47,7 +47,7 @@
         @endforeach
     </div>
     @else
-        <div class="mt-2 text-center font-bold text-lg">No se enconcotró ningún equipo.</div>
+    <h3 style="border-radius: 10px;background-color:black;text-align: center;width: 30%;margin: auto;" class="mb-3 text-white font-bold p-2 text-base">No se enconcotró ningun equipo.</h3>
     @endif
     <div class="mt-2 mb-4">
         {{$teams->links()}}

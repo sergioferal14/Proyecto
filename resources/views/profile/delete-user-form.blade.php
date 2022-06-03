@@ -9,7 +9,7 @@
 
     <x-slot name="content">
         <div class="max-w-xl text-base ">
-            Una vez que se elimine su cuenta,<b> todos sus equipos, jugadores , sesiones y ejercicios se eliminarán de forma permanente para usted y el resto usuarios</b>. Antes de eliminar su cuenta, descargue cualquier dato o información que desee conservar.
+            Una vez que se elimine su cuenta,<b>las sesiones, ejercicios y equipos con sus jugadores</b> se eliminarán de forma permanente. Antes de eliminar su cuenta, descargue cualquier dato o información que desee conservar.
             
         </div>
 
@@ -26,7 +26,7 @@
             </x-slot>
 
             <x-slot name="content">
-                ¿Está seguro de que desea eliminar su cuenta? Una vez que se elimine su cuenta,<b> todos sus equipos, jugadores , sesiones y ejercicios se eliminarán de forma permanente para usted y el resto de usuarios</b>. Ingrese su contraseña para confirmar que desea eliminar su cuenta de forma permanente.
+                ¿Está seguro de que desea eliminar su cuenta? Una vez que se elimine su cuenta, <b>las sesiones, ejercicios y equipos con sus jugadores</b>  se eliminarán de forma permanente. Ingrese su contraseña para confirmar que desea eliminar su cuenta de forma permanente.
                 
 
                 <div class="mt-4" x-data="{}" x-on:confirming-delete-user.window="setTimeout(() => $refs.password.focus(), 250)">

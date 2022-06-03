@@ -1,13 +1,13 @@
 <x-app-layout>
     
-    <div class="mt-4 max-w-7xl mx-auto sm:px-6 lg:px-8 container"  >
+    <div class="mt-4 max-w-7xl mx-auto sm:px-6 lg:px-8 container" style="border-radius:10px;" >
         
         <div class="my-2 mb-5 grid md:grid-cols-2" style="min-height:calc(100vh-266px)">
-            <div class=" card2 xl:w-96 ml-6 mr-2 mx-w-sm rounded overflow-hidden shadow-lg " style="border: solid 3px black">
+            <div class=" card2 xl:w-96 ml-6 bg-white mr-2 mx-w-sm rounded overflow-hidden shadow-lg " style="border:solid 3px black">
   
                 <div class="text-lg flex flex-row justify-top text-center"
                     style="background-color: #0288d1;color:white;">
-                    <h3 class="font-bold px-6 py-4 ">Jugadores del {{$team->nombre}}</h3><img src="{{ asset('storage/'.$team->escudo) }}" class="mr-3 h-12 sm:h-12 mx-auto my-auto flex-end">
+                    <h3 class="font-bold px-6 py-4 ">Jugadores del {{$team->nombre}}</h3><img src="{{ asset('storage/'.$team->escudo) }}" class="mr-3  mx-auto my-auto flex-end" style="width:60px;height:60px">
                 </div>
                 
                 <div>

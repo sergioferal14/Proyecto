@@ -36,7 +36,7 @@
                 </div>
                 <div>
                     @if($teams->count() < 1)
-                    No dirige ningún equipo
+                    <span style="background-color: red;" class="rounded p-1 font-bold">No dirige ningún equipo</span>
                     @else
                     <x-form-select  class="block  px-0 w-full   focus:outline-none focus:ring-0  "
                         style="padding: 9px 10px;width: 100%; display: block;margin: 0;outline: medium none; border-bottom: solid 1px #c6d6df;"

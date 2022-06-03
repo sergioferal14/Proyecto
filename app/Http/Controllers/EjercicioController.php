@@ -20,17 +20,10 @@ class EjercicioController extends Controller
         $usuario=auth()->user();
         $tipos=TiposEjercicio::orderBy('nombre')->get();
         $ejerciciosPublicos=Ejercicio::orderBy('created_at')->where('estado',2);
-        //$ejerciciosCont=Ejercicio::orderBy('created_at')->where('sesion_id',$sesion->id)->where('tipo_id',$tipos->id)->get();
         $ejercicios=Ejercicio::orderBy('created_at')->where('sesion_id',$sesion->id)->paginate(3);
-        $ejerciciosCont=Ejercicio::orderBy('created_at')->get()->groupBy('tipo_id');
+        //$ejerciciosCont=Ejercicio::orderBy('created_at')->where('user_id',auth()->user()->id)->get()->groupBy('tipo_id');
         
-        //    foreach($tipos as $t){
-        //        dd($t);
-        //    }
-        
-        
-
-        return view('ejercicios.index',compact('tipos','ejercicios','ejerciciosCont','ejerciciosPublicos','sesion','usuario'));
+        return view('ejercicios.index',compact('tipos','ejercicios','ejerciciosPublicos','sesion','usuario'));
     }
 
     public function index1(Request $request,TiposEjercicio $tipo)
@@ -38,10 +31,9 @@ class EjercicioController extends Controller
         $controlador=false;
         $tipos=TiposEjercicio::orderBy('nombre')->get();
         $ejerciciosPublicos=Ejercicio::orderBy('created_at')->where('estado',2);    
-        $ejercicios=Ejercicio::orderBy('created_at')->where('tipo_id',$tipo->id)->paginate(3);  
-        $ejerciciosCont=Ejercicio::orderBy('created_at')->get()->groupBy('tipo_id');
-        
-        return view('ejercicios.index',compact('tipos','ejercicios','ejerciciosCont','ejerciciosPublicos','tipo'));
+        $ejercicios=Ejercicio::orderBy('created_at')->where('user_id',auth()->user()->id)->where('tipo_id',$tipo->id)->busqueda($request->busqueda)->paginate(3);  
+        //$ejerciciosCont=Ejercicio::orderBy('created_at')->where('user_id',auth()->user()->id)->get()->groupBy('tipo_id');
+        return view('ejercicios.index',compact('tipos','ejercicios','ejerciciosPublicos','tipo','request'));
     }
 
     public function index2(Request $request)
@@ -49,12 +41,12 @@ class EjercicioController extends Controller
         
         $tipos=TiposEjercicio::orderBy('nombre')->get();
         $ejerciciosPublicos=Ejercicio::orderBy('created_at')->where('estado',2);
-        //$ejerciciosCont=Ejercicio::orderBy('created_at')->where('sesion_id',$sesion->id)->where('tipo_id',$tipos->id)->get();
         $ejercicios=Ejercicio::orderBy('created_at')->where('estado',2)
         ->tipoId($request->tipo_id)->paginate(3);
-        $ejerciciosCont=Ejercicio::orderBy('created_at')->get()->groupBy('tipo_id');
+        //$ejerciciosCont=Ejercicio::orderBy('created_at')->where('user_id',auth()->user()->id)->get()->groupBy('tipo_id');
         
-        return view('ejercicios.index',compact('tipos','ejercicios','ejerciciosCont','ejerciciosPublicos','request'));
+
+        return view('ejercicios.index',compact('tipos','ejercicios','ejerciciosPublicos','request'));
     }
 
     /**
@@ -64,7 +56,7 @@ class EjercicioController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -75,7 +67,7 @@ class EjercicioController extends Controller
      */
     public function store(Request $request)
     {
-
+        
         $request->validate([
             'nombre'=>['required', 'string', 'min:3'],
             'img'=>['nullable','image'],
@@ -84,18 +76,11 @@ class EjercicioController extends Controller
             'material'=>['required','string','min:3'],
             'tiempo'=>['required','string'],
             'user_id'=>['required','integer'],
-            'tipo_id'=>['required','integer']
+            'estado'=>['required'],
+            'tipo_id'=>['required']
         ]);
-
         
-        
-        if($request->estado=='on'){
-            $request->estado=2;
-            
-        }else{
-            $request->estado=1;
-        }
-
+    
             $ejercicio=Ejercicio::create($request->all());
 
         if($request->file('img')){
@@ -104,11 +89,13 @@ class EjercicioController extends Controller
 
             Storage::disk("public")->put($urlBuena,\File::get($file));
             $ejercicio->update([
-                'img'=>$urlBuena
+                'img'=>$urlBuena,
             ]);
         }
-        if($ejercicio->id){
-            return redirect()->route('ejercicio.index',$ejercicio->sesion_id)->with('crear', 'Ejercicio creado con éxito');
+        if($request->sesion_id){
+            return redirect()->route('ejercicio.index',$request->sesion_id)->with('crear', 'Ejercicio creado con éxito');
+        }else{
+            return redirect()->route('ejercicio.index1',$request->tipo_id)->with('crear', 'Ejercicio creado con éxito');
         }
 
     }
@@ -119,9 +106,17 @@ class EjercicioController extends Controller
      * @param  \App\Models\Ejercicio  $ejercicio
      * @return \Illuminate\Http\Response
      */
-    public function show(Ejercicio $ejercicio)
+    public function quitar(Ejercicio $ejercicio)
     {
-        //
+
+        $idSesion=$ejercicio->sesion_id;
+
+        $ejercicio->update([
+            'sesion_id'=>null
+        ]);
+
+        return redirect()->route('ejercicio.index',$idSesion)->with('borrar', "Ejercicio quitado.");
+
     }
 
     /**
@@ -155,6 +150,14 @@ class EjercicioController extends Controller
      */
     public function destroy(Ejercicio $ejercicio)
     {
-        //
+        
+        if(basename($ejercicio->img)!='noimage.jpg'){
+            Storage::delete($ejercicio->img);   
+           }
+
+        $id_tipo=$ejercicio->tipo_id;
+        $ejercicio->delete();
+        
+        return redirect()->route('ejercicio.index1',$id_tipo)->with('borrar', 'Ejercicio Borrado');
     }
 }

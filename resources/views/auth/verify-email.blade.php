@@ -1,5 +1,4 @@
 <x-guest-layout>
-    <div  >
     <x-jet-authentication-card>
         
         <img src="{{asset('storage/logo.png')}}" class="mx-auto" style="width: 50%"/> 
@@ -34,5 +33,4 @@
         </div>
         
     </x-jet-authentication-card>
-</div>
 </x-guest-layout>

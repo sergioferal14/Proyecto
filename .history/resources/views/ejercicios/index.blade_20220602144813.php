@@ -22,7 +22,7 @@
               <div class="mx-auto flex-2">
                 <button class="bg-sky-700 hover:bg-sky-800 text-white font-bold py-2 px-4 rounded border-3 "
                     type="button" data-modal-toggle="modalCrear">
-                    <i class="fa-solid fa-plus"></i> @if(isset($sesion)) Añadir Ejercicio a {{$sesion->nombre}} @else Crear Nuevo Ejercicio @endif</button>
+                    <i class="fa-solid fa-plus"></i> @if(isset($sesion)) Añadir Ejercicio a $sesion @else Crear Nuevo Ejercicio @endif</button>
                 @include('ejercicios.create')
             </div>  
             

@@ -43,7 +43,7 @@
                     {{ __('Añadir Foto') }}
                 </x-jet-secondary-button>
 
-                @if ($this->user->profile_photo_path)
+                @if ($this->user->profile_photo_path && $this->user->profile_photo_path != 'avatar.png')
                     <x-jet-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
                         {{ __('Eliminar Foto') }}
                     </x-jet-secondary-button>

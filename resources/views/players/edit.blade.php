@@ -18,15 +18,15 @@
                         
                         <button name="btnAccion" value="1" type="submit"
                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded d-sm-block whitespace-normal lg:whitespace-nowrap">
-                            <i class="fa-solid fa-save"></i> Guardar</button>
+                            <i class="fa-solid fa-save"></i> <span class="icono">Guardar</span> </button>
 
                         <button name="btnAccion" value="2" type="submit"
                             class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 rounded ml-2 whitespace-normal lg:whitespace-nowrap" onclick="return confirm('¿Borrar el jugador {{$player->nombre}} {{$player->apellidos}} ?')">
-                            <i class="fa-solid fa-trash"></i> Borrar</button>
+                            <i class="fa-solid fa-trash"></i> <span class="icono">Borrar</span> </button>
 
                         <a href="{{ route('players.index', $team) }}"
                             class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 rounded ml-2 whitespace-normal lg:whitespace-nowrap">
-                            <i class="fa-solid fa-user-plus"></i> Nuevo Jugador</a>
+                            <i class="fa-solid fa-user-plus"></i> <span class="icono">Nuevo Jugador</span> </a>
 
                     </div>
                 </div>

@@ -127,7 +127,8 @@ class EjercicioController extends Controller
      */
     public function edit(Ejercicio $ejercicio)
     {
-        //
+        
+
     }
 
     /**
@@ -139,7 +140,44 @@ class EjercicioController extends Controller
      */
     public function update(Request $request, Ejercicio $ejercicio)
     {
-        //
+        session()->put("errorEdit",true);
+        
+        $request->validate([
+            'nombre'=>['required', 'string', 'min:3'],
+            'img'=>['nullable','image'],
+            'descripcion'=>['required', 'string', 'min:5'],
+            'njugadores'=>['required', 'integer', 'max:30'],
+            'material'=>['required','string','min:3'],
+            'tiempo'=>['required','string'],
+            'user_id'=>['required','integer'],
+            'estado'=>['required'],
+            'tipo_id'=>['required']
+        ]);
+        
+        if($request->file('img')){
+            
+            if($ejercicio->img!='ejercicios/noimage.jpg'){
+                Storage::delete($ejercicio->img);
+            }                          
+
+        $file = $request->file("img");
+                $urlBuena = "ejercicios/".time()."_".$file->getClientOriginalName();
+
+                Storage::disk("public")->put($urlBuena, \File::get($file));
+                $ejercicio->update([
+                    'img'=>$urlBuena
+                ]);
+        }else {
+    
+        $ejercicio->update($request->all());
+        }
+
+        if($request->sesion_id){
+            return redirect()->route('ejercicio.index',$request->sesion_id)->with('crear', 'Ejercicio editado con éxito');
+        }else{
+            return redirect()->route('ejercicio.index1',$request->tipo_id)->with('crear', 'Ejercicio editado con éxito');
+        }
+
     }
 
     /**

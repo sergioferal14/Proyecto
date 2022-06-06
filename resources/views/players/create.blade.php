@@ -15,12 +15,12 @@
                         <button type="submit"
                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded"
                             style="white-space: nowrap;">
-                            <i class="fa-solid fa-save"></i> Guardar</button>
+                            <i class="fa-solid fa-save"></i><span class="icono">Guardar</span> </button>
 
                         <button type="reset"
                             class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 rounded ml-2 "
                             style="white-space: nowrap;">
-                            <i class="fa-solid fa-eraser"></i> Limpiar</button>
+                            <i class="fa-solid fa-eraser"></i> <span class="icono">Limpiar</span> </button>
 
                     </div>
                 </div>

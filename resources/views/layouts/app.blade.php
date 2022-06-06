@@ -48,6 +48,45 @@
             
         }
 
+        @media (min-width:900px) {
+            .modalError{
+                zoom: 80% !important;
+            position: absolute;
+            content:'';
+            top: 0 !important;
+            bottom: 0 !important;
+            left: 20% !important;
+            right: 25% !important;
+            
+            }
+
+        }
+
+
+        .oscurecer1{  
+            content:'' !important;
+            position: absolute !important;
+            visibility: hidden !important;
+            top: 0 !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            background-color: rgba(0,0,0,0.6) !important;
+        }
+
+        .modalError{
+            zoom: 80% !important;
+            position: absolute;
+            content:'';
+            top: 0 ;
+            bottom: 0 ;
+            left: 0 ;
+            right: 0 ;
+            
+        }
+
+        
+
         .heading {
             text-align: center !important;
             font-size: 30px !important;
@@ -136,6 +175,10 @@
         input:focus {
             border-bottom: solid 1px #03a9f4 !important;
             color: #03a9f4 !important;
+        }
+
+        .radio:checked{
+            background-color: #03a9f4 !important;
         }
 
         
@@ -263,6 +306,19 @@
 
         }
 
+        .padreFut {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-column-gap: 0px;
+            grid-row-gap: 6px;
+        }
+
+.divFoot1 { grid-area: 1 / 1 / 2 / 2; }
+.divFoot2 { grid-area: 1 / 2 / 2 / 3; }
+.divFoot3 { grid-area: 2 / 1 / 3 / 2; }
+.divFoot4 { grid-area: 2 / 2 / 3 / 3; }
+
     
 
 </style>
@@ -271,11 +327,11 @@
 
 <body class="font-sans antialiased fondo" >
 
-    <div class="min-h-screen">
+    <div class="min-h-screen" id="oscuro">
         @livewire('navigation-menu')
 
         <!-- Page Content -->
-        <main style="zoom: 92%">
+        <main style="zoom: 92%" >
             {{ $slot }}
         </main>
     </div>
@@ -309,39 +365,42 @@
             })
         });
     </script>
-    <footer class="text-center lg:text-left bg-gray-900 text-white mx-auto rounded mt-4" style="width: 85%; ">
+    @if($errors->any())
+    @else
+    <footer class="text-center lg:text-left bg-gray-900 text-white mx-auto rounded mt-4 " id="footer" style="width: 85%; ">
         <div class="lg:flex justify-center items-center lg:justify-between  p-6 border-b border-gray-300" >
             <div class="mr-3 lg:block">
-                <span>
+            
                     <h6 class="uppercase font-semibold mb-4 flex justify-center md:justify-start">
                         <span class=" bg-white rounded text-black px-1">Contacto</span>
                     </h6>
-                    <p class="flex items-center justify-center md:justify-start mb-4" style="white-space:nowrap;">
-                        <span class="mr-3">
+                    
+                    <div class="padreFut">
+                        <span class=" divFoot1">
                             <i class="fa-solid fa-house"></i>
                             Almeria, Al 04007, Es
                         </span>
-                        <span class="mr-3">
+                        <span class=" divFoot2">
                             <i class="fa-solid fa-envelope"></i>
                             futbolmaster@gmail.com
                         </span>
-                    <p>
-                        <span class="mr-3">
+                    
+                        <span class=" divFoot3">
                             <i class="fa-solid fa-phone"></i>
                             + 34 666 15 21 65
                         </span>
 
-                        <span class="mr-3">
+                        <span class=" divFoot4">
                             <i class="fa-solid fa-print"></i>
                             + 34 950 25 75 53
                         </span>
-                    </p>
+                    </div>
 
-                    </p>
+    
 
-                </span>
+            
             </div>
-            <div class="text-center p-4  lg:block" style="white-space:nowrap;">
+            <div class="text-center p-4  lg:block" >
                 <span>© 2021 Copyright:</span>
                 <p class="text-white font-semibold">The site's content is the Copyright © Fútbol Master.</p>
                 <p class="text-white font-semibold">Futbol Mater All Rights Reserved.</p>
@@ -362,6 +421,7 @@
             </div>
         </div>
     </footer>
+    @endif
     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
     <script src="https://unpkg.com/flowbite@1.4.7/dist/datepicker.js"></script>
 </body>

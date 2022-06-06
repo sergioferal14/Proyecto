@@ -23,14 +23,7 @@
                
             @livewire('create-sesion')
         </div>
-        {{-- <div class="mx-auto flex-2">   
-            <select class='bg-sky-700 hover:bg-sky-800 text-white font-bold py-2 mx-auto px-4 rounded border-3 ' style="border:solid 2px white !important">
-                <option  wire:click="ordenarPor('%')" selected>Ordenar por</option><i class=" p-2 fa-solid fa-chevron-down" style="margin-left: 2px;color:antiquewhite"></i>
-                <option wire:model="campo" wire:click="ordenarPor('fecha')">Fecha</option>
-                <option wire:model="campo" wire:click="ordenarPor('nombre')">Nombre</option>
-                <option wire:model="campo" wire:click="ordenarPor('id')">ID</option>
-              </select>
-        </div> --}}
+        
             
     </div>
     @if ($sesions->count())
@@ -82,7 +75,11 @@
     <x-jet-dialog-modal wire:model="isOpen">
         <x-slot name="title">
             <h3 class="font-bold">Nueva Sesión</h3>
-            <a class="ml-auto" wire:click="$set('isOpen', false)"><i class="fa-solid fa-xmark"></i></a>
+            <button type="button" wire:click="$set('isOpen', false)"
+                        class="text-white mr-8 bg-transparent hover:border-gray-700  hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                        <i class=" fa-solid fa-xmark-large px-2 p-2 rounded hover:bg-black"
+                            style="border:solid 2px #c6d6df">x</i>
+            </button>
         </x-slot>
         <x-slot name="content">
             @wire

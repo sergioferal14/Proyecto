@@ -15,7 +15,7 @@ class CreateSesion extends Component
     public Team $team;
     public $isOpen=false;
     protected $rules=[
-        'nombre'=>['required', 'string', 'min:3', 'unique:sesions,nombre'],
+        'nombre'=>['required', 'string', 'max:10', 'unique:sesions,nombre'],
         'fecha'=>['required', 'date'],
         'team_id'=>['required']
     ];

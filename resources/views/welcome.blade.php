@@ -498,6 +498,18 @@
             background-size: 100% 100%;
         }
 
+        .padreFut {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-column-gap: 0px;
+            grid-row-gap: 6px;
+        }
+
+.divFoot1 { grid-area: 1 / 1 / 2 / 2; }
+.divFoot2 { grid-area: 1 / 2 / 2 / 3; }
+.divFoot3 { grid-area: 2 / 1 / 3 / 2; }
+.divFoot4 { grid-area: 2 / 2 / 3 / 3; }
     </style>
 
 
@@ -519,7 +531,7 @@
             </div>
         @endif
 
-        <div class="max-w-6xl mx-auto mt-8 sm:px-6 lg:px-8">
+        <div class=" mx-auto mt-8 sm:px-6 lg:px-8">
         
             <div class="container">
                 <div class="mt-8 overflow-hidden  sm:rounded-lg ">
@@ -581,32 +593,31 @@
                 <h6 class="uppercase font-semibold mb-4 flex justify-center md:justify-start">
                   <span class=" bg-white rounded text-black px-1">Contacto</span>
                 </h6>
-                <p class="flex items-center justify-center md:justify-start mb-4" style="white-space:nowrap;">
-                  <span class="mr-3">
-                    <i class="fa-solid fa-house"></i>
-                    Almeria, Al 04007, Es
-                  </span>
-                  <span class="mr-3">
-                    <i class="fa-solid fa-envelope"></i>
-                    futbolmaster@gmail.com
-                  </span>
-                  <p>
-                    <span class="mr-3">
-                    <i class="fa-solid fa-phone"></i>
-                    + 34 15 21 65
-                  </span>
-      
-                  <span class="mr-3">
-                    <i class="fa-solid fa-print"></i>
-                    + 34 950 25 75 53
-                  </span>
-                  </p>
-                  
-                </p>
+                
+                <div class="padreFut">
+                        <span class=" divFoot1">
+                            <i class="fa-solid fa-house"></i>
+                            Almeria, Al 04007, Es
+                        </span>
+                        <span class=" divFoot2">
+                            <i class="fa-solid fa-envelope"></i>
+                            futbolmaster@gmail.com
+                        </span>
+                    
+                        <span class=" divFoot3">
+                            <i class="fa-solid fa-phone"></i>
+                            + 34 666 15 21 65
+                        </span>
+
+                        <span class=" divFoot4">
+                            <i class="fa-solid fa-print"></i>
+                            + 34 950 25 75 53
+                        </span>
+                    </div>
               
             </span>
           </div>
-          <div class="text-center p-4  lg:block" style="white-space:nowrap;">
+          <div class="text-center p-4  lg:block" >
             <span>© 2021 Copyright:</span>
             <p class="text-white font-semibold">The site's content is the Copyright © Fútbol Master.</p>
             <p class="text-white font-semibold">Futbol Mater All Rights Reserved.</p>

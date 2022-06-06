@@ -42,13 +42,7 @@ class ShowSesion extends Component
             return view('livewire.show-sesion', compact('sesions','teams'));
     }
 
-    // public function ordenarPor($campo){
-    //     if($campo==$this->campo){
-    //         $this->orden = ($this->orden=='desc') ? 'asc' : 'desc';
-    //     }
-    //     else
-    //         $this->campo=$campo;
-    // }
+    
 
     public function borrar(Sesion $sesion){
         

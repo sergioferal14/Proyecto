@@ -274,7 +274,6 @@
                                     </div>
                                     <div
                                         style="padding-top: 10px;grid-template-columns: 6em 1fr;align-items: center; display:flex">
-                                        <!-- El codigo de estado de github -->
                                         <div>
                                             <label for="created_at" class="mr-1"><b>Estado:</b></label>
                                         </div>

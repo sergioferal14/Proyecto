@@ -1,6 +1,7 @@
 <x-jet-action-section>
     <x-slot name="title">
-        {{ __('Verificacion en dos pasos') }}
+        <span class="p-4 whitespace-nowrap">Verificacion en dos pasos</span>
+        
     </x-slot>
 
     <x-slot name="description">

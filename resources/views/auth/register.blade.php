@@ -1,4 +1,5 @@
 <x-guest-layout>
+<div class="font-sans antialiased" >
     <x-jet-authentication-card>
         <x-slot name="logo">
             
@@ -57,4 +58,5 @@
             </div>
         </form>
     </x-jet-authentication-card>
+</div>
 </x-guest-layout>

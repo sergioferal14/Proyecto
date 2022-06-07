@@ -28,12 +28,17 @@
                         </div>
                     </div>
                 </div>
+                
             @else
                 <div class="my-2 mb-5 mx-auto" style="text-align: center; ">
         @endif
 
         <div class="mx-auto">
-            
+            <button onclick="cargarPDF()"
+                    class="ml-2 bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded border-3 ">
+                    Exportar {{$sesion->nombre}} a PDF <i class="ml-2 fa-solid fa-file-pdf"></i>
+                </button>
+
             <button id="botonCrear"
                 class="oscurecer bg-sky-700 hover:bg-sky-800 text-white font-bold py-2 px-4 rounded border-3 " type="button"
                 data-modal-toggle="modalCrear">
@@ -122,13 +127,14 @@
     <!--Aqui termina el contenedor de carpetas-->
     <!--Aqui empieza el contenedor de los ejercicios-->
     
-    <div class=" sm:col-span-4 lg:col-span-3 mx-w-sm oscurecer ">
+    <div class=" sm:col-span-4 lg:col-span-3 mx-w-sm oscurecer " id="pdfEjercicios">
         <!--Aqui empieza el ejercicio -->
         <form name="bus" action="{{ route('ejercicio.index2') }}" method="get">
             @if (isset($sesion))
+            
                 <h2 style="border-radius: 10px;background-color:black;text-align: center;width: 70%;margin: auto;"
                     class="mb-3 text-white font-bold p-2 text-2xl">Ejercicios de la sesión
-                    ({{ $sesion->nombre }})</h2>
+                    ({{ $sesion->nombre }})</h2>            
             @else
                 @if (isset($tipo))
                     <h2 style="border-radius: 10px;background-color:black;text-align: center;width: 70%;margin: auto;"
@@ -338,13 +344,15 @@
 
 
         <!--Aqui termina el ejercicio -->
-        @if ($ejercicios->count() > 0)
-            <div class="mt-2 mx-auto col-span-4 pagination-lg"
-                style="width:100%;display:block; text-align:center !important; margin-left:25% !important;">
-                {{ $ejercicios->links() }}
-            </div>
+        @if(isset($sesion))
+        @else
+            @if ($ejercicios->count() > 0)
+                <div class="mt-2 mx-auto col-span-4 pagination-lg"
+                    style="width:100%;display:block; text-align:center !important; margin-left:25% !important;">
+                    {{ $ejercicios->links() }}
+                </div>
+            @endif
         @endif
-
         <!--Aqui termina el contenedor de los ejercicios-->
     </div>
     
@@ -372,5 +380,22 @@
         </script>
     @endif
 
+    <script>
+            function cargarPDF(){
+
+                const pdf = this.document.getElementById("pdfEjercicios");
+
+            var opt = {
+                margin: [0.25,0],
+                filename: 'sesion.pdf',
+                image: { type: 'jpeg', quality: 1 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+                pagebreak: { mode: 'avoid-all' }
+            };
+            html2pdf().from(pdf).set(opt).save();
+            }
+
+        </script>
 
 </x-app-layout>

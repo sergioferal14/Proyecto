@@ -20,7 +20,7 @@ class EjercicioController extends Controller
         $usuario=auth()->user();
         $tipos=TiposEjercicio::orderBy('nombre')->get();
         $ejerciciosPublicos=Ejercicio::orderBy('created_at')->where('estado',2);
-        $ejercicios=Ejercicio::orderBy('created_at')->where('sesion_id',$sesion->id)->paginate(3);
+        $ejercicios=Ejercicio::orderBy('created_at')->where('sesion_id',$sesion->id)->get();
         //$ejerciciosCont=Ejercicio::orderBy('created_at')->where('user_id',auth()->user()->id)->get()->groupBy('tipo_id');
         
         return view('ejercicios.index',compact('tipos','ejercicios','ejerciciosPublicos','sesion','usuario'));

@@ -55,5 +55,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('ejercicios/borrar/{ejercic
 
 Route::middleware(['auth:sanctum', 'verified'])->get('ejercicios/quitado/{ejercicio}', "App\Http\Controllers\EjercicioController@quitar")->name('ejercicios.quitar');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('exportar/{team}', "App\Http\Controllers\PlayerController@export")->name('players.excel');
+
 
 

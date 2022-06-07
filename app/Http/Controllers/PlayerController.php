@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ProductsExport;
 use App\Models\Player;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PlayerController extends Controller
 {
@@ -169,11 +171,12 @@ class PlayerController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Player  $Player
-     * @return \Illuminate\Http\Response
-     */
+    public function export(Team $team){
+        
+        $jugadores=Player::where('team_id',$team->id)
+        ->select('id','nombre', 'apellidos','posicion','dorsal','edad','peso','altura','observaciones','created_at','updated_at')
+        ->get();
+        return Excel::download(new ProductsExport($jugadores),'jugadores.xlsx');
+    }
     
 }

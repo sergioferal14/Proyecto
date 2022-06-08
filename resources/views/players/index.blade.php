@@ -5,7 +5,7 @@
         class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded border-3 ">
         Exportar a Excel<i class="fa-solid fa-file-excel ml-2"></i></a>
 
-        <div class="my-2 mb-5 grid md:grid-cols-2" style="min-height:calc(100vh-266px)">
+        <div class="my-2 mb-5 grid cardsPlayers" style="min-height:calc(100vh-266px)">
             <div class=" card2 xl:w-96 ml-6 bg-white mr-2 mx-w-sm rounded overflow-hidden shadow-lg " style="border:solid 3px black">
   
                 <div class="text-lg flex flex-row justify-top text-center"

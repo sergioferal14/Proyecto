@@ -13,12 +13,19 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link class="text-white" href="{{ route('sesion.index') }}" :active="request()->routeIs('sesion.index','ejercicio.index')">
+                    <x-jet-nav-link class="text-white" href="{{ route('sesion.index') }}" :active="request()->routeIs('sesion.index','ejercicio.index','ejercicio.index1','ejercicio.index2')">
                         <i class="fas fa-calendar-days mr-2"></i>{{ __('Sesiones') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link class="text-white hover:text-indigo" href="{{ route('teams.index') }}" :active="request()->routeIs('teams.index','players.index')">
                         <i class="fas fa-users mr-2"></i>{{ __('Mi Equipo') }}
                     </x-jet-nav-link>
+
+                    {{-- @can('user_access')
+                       <x-jet-nav-link class="text-white hover:text-indigo" href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
+                        <i class="fa-solid fa-user-gear mr-2"></i>{{ __('Administrar Usuarios') }}
+                    </x-jet-nav-link> 
+                    @endcan --}}
+                    
                 </div>
             </div>
 
@@ -98,11 +105,9 @@
 
                         <x-slot name="content">
                             <!-- Account Management -->
-                            <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Administrar Cuenta') }}
-                            </div>
+                            
 
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                            <x-jet-dropdown-link href="{{ route('profile.show') }} ">
                                 {{ __('Perfil') }}
                             </x-jet-dropdown-link>
 
@@ -112,7 +117,7 @@
                                 </x-jet-dropdown-link>
                             @endif
 
-                            <div class="border-t border-gray-100 p-1"></div>
+                            <div class="border-t border-gray-100"></div>
 
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}" x-data>

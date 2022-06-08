@@ -41,6 +41,10 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
 
+    <!--Estilo de coockies-->
+
+    <!--Cierre estilo de cookies-->
+
     <style>
         * {
             padding: 0;
@@ -48,6 +52,27 @@
             box-sizing: border-box;
             
         }
+
+        @media(max-width:500px){
+            .formularioPlayer{
+                display: block !important;
+            }
+
+            .formDatosPlayer{
+                width: 100% !important;
+            }
+
+            
+        }
+        @media(max-width:1000px){
+            
+            .imgPlayer{
+                width:80px !important;
+                height:80px !important;
+            }
+            
+        }
+        
 
         @media (min-width:900px) {
             .modalError{
@@ -132,6 +157,16 @@
             font-size: 18px !important;
         }
 
+        @media(min-width:1000px){
+            
+            
+            .cardsPlayers{
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+            
+        }
+        
+
         .card2 {
             border-radius: 10px;
             box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
@@ -197,7 +232,7 @@
         background-size: 100% 100%;
     }
 
-    @media (max-width:600px) {
+    @media (max-width:450px) {
             .icono{
                 display: none;
                 padding: 1px !important;
@@ -383,7 +418,7 @@
                         </span>
                         <span class=" divFoot2">
                             <i class="fa-solid fa-envelope"></i>
-                            futbolmaster@gmail.com
+                            futbolmastere@gmail.com
                         </span>
                     
                         <span class=" divFoot3">
@@ -422,6 +457,16 @@
             </div>
         </div>
     </footer>
+    
+
+<!-- BUY ME A BEER AND HELP SUPPORT OPEN-SOURCE RESOURCES -->
+<div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
+    <div>
+        <a title="Home" href="{{route('dashboard')}}" style="text-align:center !important"  class="bg-black block w-14 h-14 rounded-full transition-all  shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
+            <i class="object-cover object-center text-white rounded-full fa-solid fa-house text-3xl" style="margin-top: 16%;"></i>
+        </a>
+    </div>
+</div>
     @endif
     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
     <script src="https://unpkg.com/flowbite@1.4.7/dist/datepicker.js"></script>

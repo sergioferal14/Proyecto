@@ -17,6 +17,10 @@ class EjercicioController extends Controller
      */
     public function index(Request $request,Sesion $sesion)
     {
+
+        session()->put("sesionEntreno",$sesion->id);
+
+
         $usuario=auth()->user();
         $tipos=TiposEjercicio::orderBy('nombre')->get();
         $ejerciciosPublicos=Ejercicio::orderBy('created_at')->where('estado',2);
@@ -39,6 +43,8 @@ class EjercicioController extends Controller
     public function index2(Request $request)
     {
         
+        session()->put("publicado",true);
+
         $tipos=TiposEjercicio::orderBy('nombre')->get();
         $ejerciciosPublicos=Ejercicio::orderBy('created_at')->where('estado',2);
         $ejercicios=Ejercicio::orderBy('created_at')->where('estado',2)
@@ -116,6 +122,26 @@ class EjercicioController extends Controller
         ]);
 
         return redirect()->route('ejercicio.index',$idSesion)->with('borrar', "Ejercicio quitado.");
+
+    }
+
+    public function asignarSesion(Ejercicio $ejercicio)
+    {
+
+        $ejercicio->update([
+            'sesion_id'=>session()->get('sesionEntreno')
+        ]);
+
+        if(session()->get('publicado')){
+            
+            session()->put("publicado",false);
+            return redirect()->route('ejercicio.index2')->with('crear', "Ejercicio añadido.");
+
+        }else{
+            return redirect()->route('ejercicio.index1',$ejercicio->tipo_id)->with('crear', "Ejercicio añadido.");
+        }
+
+        
 
     }
 

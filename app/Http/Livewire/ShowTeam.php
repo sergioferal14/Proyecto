@@ -29,6 +29,10 @@ class ShowTeam extends Component
         $this->team=new Team;
     }
 
+    public function updatingSearch(){
+        $this->resetPage();
+    }
+
     public function render()
     {
         $teams = Team::orderBy('nombre')->where('user_id', auth()->user()->id)

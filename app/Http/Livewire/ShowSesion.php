@@ -32,6 +32,10 @@ class ShowSesion extends Component
         $this->sesion=new Sesion;
     }
 
+    public function updatingSearch(){
+        $this->resetPage();
+    }
+    
     public function render()
     {
         $teams=Team::orderby('nombre')->where('user_id', auth()->user()->id)->get();

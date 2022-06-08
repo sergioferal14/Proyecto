@@ -1,7 +1,7 @@
 <div>
     <form action="{{ route('players.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="mx-w-sm card2 rounded bg-white  ml-2  mr-6" style="border:solid 3px black">
+        <div class="mx-w-md card2 rounded bg-white" style="border:solid 3px black;">
             <div class="text-lg flex flex-row justify-top text-center" style="background-color: #0288d1;color:white;">
                 <h3 class="font-bold px-6 py-4 ">Nuevo Jugador del {{ $team->nombre }}</h3><img
                     src="{{ asset('storage/' . $team->escudo) }}" class="mr-3  mx-auto my-auto flex-end" style="width:60px;height:60px">
@@ -15,7 +15,7 @@
                         <button type="submit"
                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded"
                             style="white-space: nowrap;">
-                            <i class="fa-solid fa-save"></i><span class="icono">Guardar</span> </button>
+                            <i class="fa-solid fa-save"></i> <span class="icono">Guardar</span> </button>
 
                         <button type="reset"
                             class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 rounded ml-2 "
@@ -24,8 +24,8 @@
 
                     </div>
                 </div>
-                <div style=" padding: 10px; display:flex; " class="flex sm:flex-col md:flex-row">
-                    <div style="width: 66%;display: grid;align-items: center;padding: 0;margin-right:20px">
+                <div style=" padding: 10px; display:flex; " class="flex md:flex-row formularioPlayer">
+                    <div style="width: 66%;display: grid;align-items: center;padding: 0;margin-right:20px " class="formDatosPlayer">
                         <input type="hidden" id="team_id" name='team_id'
                             style="padding: 9px 10px;width: 100%; display: block;margin: 0;outline: medium none; border-bottom: solid 1px #c6d6df;"
                             value="{{ $team->id }}" />
@@ -142,7 +142,7 @@
                         </div>
                     </div>
 
-                    <div class='mt-2' style="width: 33%;">
+                    <div class='mt-2 formDatosPlayer' style="width: 33%;" >
                         <div style="border-radius: 10px; max-width:100%; border:0px;" class="mx-auto">
                             <img src="{{ asset('storage/players/avatar.png') }}" class="object-cover object-center "
                                 id="img" />

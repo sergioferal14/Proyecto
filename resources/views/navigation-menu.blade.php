@@ -20,11 +20,11 @@
                         <i class="fas fa-users mr-2"></i>{{ __('Mi Equipo') }}
                     </x-jet-nav-link>
 
-                    {{-- @can('user_access')
+                    @can('administrar')
                        <x-jet-nav-link class="text-white hover:text-indigo" href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
                         <i class="fa-solid fa-user-gear mr-2"></i>{{ __('Administrar Usuarios') }}
                     </x-jet-nav-link> 
-                    @endcan --}}
+                    @endcan
                     
                 </div>
             </div>

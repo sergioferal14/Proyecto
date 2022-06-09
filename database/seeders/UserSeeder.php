@@ -24,5 +24,14 @@ class UserSeeder extends Seeder
             'email_verified_at'=>'2022-05-08 10:33:26',
             'profile_photo_path'=>'avatar.png'
         ]);
+
+        User::create([
+            'id'=>'2',
+            'name'=>'Martin Pedraza',
+            'email'=>'martinpedraza@gmail.com',
+            'password'=>Hash::make('Vissum-12'),
+            'email_verified_at'=>'2022-05-08 10:33:26',
+            'profile_photo_path'=>'avatar.png'
+        ]);
     }
 }

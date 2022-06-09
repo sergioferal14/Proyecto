@@ -1,5 +1,5 @@
 <x-guest-layout>
-<div class="font-sans antialiased" >
+<div class="font-sans antialiased" style="zoom:90% !important">
     <x-jet-authentication-card>
         <x-slot name="logo">
             
@@ -37,10 +37,9 @@
                             <x-jet-checkbox name="terms" id="terms"/>
 
                             <div class="ml-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
-                                ]) !!}
+                             Estoy de acuerdo con los    
+                            <a target="_blank" href="https://www.termsandconditionsgenerator.com/live.php?token=npVxOuHPRAqfpJnnvhl5Zyu4q96H4HMt" class="underline text-sm text-gray-600 hover:text-gray-900">Terminos de Servicio y Politica de Privacidad</a>
+                                
                             </div>
                         </div>
                     </x-jet-label>

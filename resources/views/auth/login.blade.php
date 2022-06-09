@@ -46,7 +46,15 @@
                     {{ __('Entrar') }}
                 </x-jet-button>
             </div>
+            
         </form>
+        <div class="mt-4 flex justify-center">
+        <div>
+            <a href="{{route('github.redirect')}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Iniciar sesion con GitHub <i class="fa-brands fa-github"></i>
+            </a>
+            </div>
+
+        </div>
     </x-jet-authentication-card>
 </div>
 </x-guest-layout>

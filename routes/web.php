@@ -5,6 +5,7 @@ use App\Http\Controllers\PlayerController;
 use App\Http\Livewire\ShowPlayer;
 use App\Http\Livewire\ShowSesion;
 use App\Http\Livewire\ShowTeam;
+use App\Http\Livewire\ShowUser;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,11 +61,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('ejercicios/quitado/{ejerci
 Route::middleware(['auth:sanctum', 'verified'])->get('exportar/{team}', "App\Http\Controllers\PlayerController@export")->name('players.excel');
 Route::middleware(['auth:sanctum', 'verified'])->get('ejercicio/asignado/{ejercicio}', "App\Http\Controllers\EjercicioController@asignarSesion")->name('ejercicio.asignar');
 
-Route::get('auth/github/redirect', [GitHubController::class, 'redirect'])
-    ->name('github.redirect');
 
-Route::get('auth/github/callback', [GitHubController::class, 'callback'])
-    ->name('github.callback');
 
 //Ruta Administrar Usuarios
-Route::resource('users', \App\Http\Controllers\UsersController::class);
+Route::middleware(['auth:sanctum', 'verified'])->get('users', ShowUser::class)->name('users.index');

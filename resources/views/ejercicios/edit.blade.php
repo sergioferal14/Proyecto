@@ -4,12 +4,12 @@
     @csrf
     <!--Comienzo ventana-->
     <div style="zoom: 90%; visibility:visible" id="modalEditar" role="dialog" tabindex="-1" aria-hidden="true"
-        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
+        class="hidden overflow-y-auto overflow-x-hidden rounded fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
         <div class="relative p-4 w-full max-w-5xl h-full md:h-auto">
             <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <!-- Modal header -->
-                <div class="text-2xl flex flex-row my-2" style="background-color: #0288d1;">
+                <div class="text-2xl flex flex-row my-2 rounded" style="background-color: #0288d1;">
                     <h3 class="font-bold px-6 py-4"><input id="nombre" name='nombre'
                             style="padding: 9px 10px;width: 175%; display: block;margin: 0;outline: medium none; border-bottom: solid 1px #c6d6df;"
                             value="{{ $item->nombre }}" /> @error('nombre')
@@ -270,7 +270,7 @@
             <script>
                 let editar = document.getElementById('modalEditar');
                 editar.className =
-                    " modalError overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full";
+                    " modalError overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full rounded";
                 editar.style.display="block";
                 let oscurecerClass = document.getElementsByClassName('oscurecer');
                 document.getElementById('oscuro').style.backgroundColor="rgba(0,0,0,0.6)";
@@ -286,7 +286,7 @@
             <script type="text/javascript">
                 let crear = document.getElementById('modalCrear');
                 crear.className =
-                    " modalError  overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full";
+                    " modalError  overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full rounded";
                     crear.style.display="block";
                 let oscurecerClass = document.getElementsByClassName('oscurecer');
                     

@@ -150,10 +150,15 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link class="text-cyan-500" href="{{ route('sesion.index') }}" :active="request()->routeIs('sesion.index')">
                 <i class="fas fa-calendar-days mr-2"></i>{{ __('Sesiones') }}
-            </x-jet-nav-link>
+            </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link class="text-cyan-500" href="{{ route('teams.index') }}" :active="request()->routeIs('teams.index')">
                 <i class="fas fa-users mr-2"></i>{{ __('Mi Equipo') }}
-            </x-jet-nav-link>
+            </x-jet-responsive-nav-link>
+            @can('administrar')
+                <x-jet-responsive-nav-link class="text-cyan-500" href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
+                    <i class="fa-solid fa-user-gear mr-2"></i>{{ __('Administrar Usuarios') }}
+                </x-jet-responsive-nav-link>  
+            @endcan
         </div>
 
         <!-- Responsive Settings Options -->

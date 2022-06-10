@@ -1,10 +1,7 @@
 <x-guest-layout>
-<div class="font-sans antialiased" style="zoom:90% !important">
+<div class="font-sans antialiased" style="zoom:85% !important">
     <x-jet-authentication-card>
-        <x-slot name="logo">
-            
-        </x-slot>
-
+        
         <x-jet-validation-errors class="mb-4" />
 
         <form method="POST" action="{{ route('register') }}">

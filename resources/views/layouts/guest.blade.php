@@ -22,14 +22,6 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
         <style>
-          @media(max-width:500px){
-
-            .ocultar{
-              z-index: -1;
-            }
-
-            
-        }
           .fondo {
         font-family: 'Nunito', sans-serif;
         background-image: url("{{asset('storage/fondo.jpg')}}");
@@ -56,45 +48,51 @@
         <div class="font-sans antialiased " >
             {{ $slot }}
         </div>
-        <footer class=" flex  fixed bottom-0 mr-4 ocultar text-center position-absolute bg-gray-900 text-white py-4 " style="justify-content:space-between;width: 100%;">
+        <footer class=" flex  fixed bottom-0 mr-4 text-center position-absolute bg-gray-900 text-white py-4 " style="justify-content:space-between;width: 100%;">
       <div style="align-items: center; display:flex; margin-left:20px;">
         <span>
           
           
-            <span class="mr-3" >
+            <span class="mr-3 whitespace-nowrap" >
               <i class=" fa-solid fa-house"></i>
               Almeria, Al 04007, Es
             </span>
-            <span class="mr-3">
+            <span class="mr-3 whitespace-nowrap">
               <i class="fa-solid fa-envelope"></i>
               futbolmastere@gmail.com
             </span>
 
-            <span class="mr-3">
+            <span class="mr-3 whitespace-nowrap">
               <i class="fa-solid fa-phone"></i>
               + 34 666 15 21 65
             </span>
 
-            <span class="mr-3">
+            <span class="mr-3 whitespace-nowrap">
               <i class="fa-solid fa-print"></i>
               + 34 950 25 75 53
             </span>
           
 
+
         </span>
-      </div>
-      
-      <div  style="margin-right: 40px;display:flex; align-items:center">
-        <a href="https://www.facebook.com/profile.php?id=100081292145231" target="_blank" style="margin-right: 50px;" class="text-white">
+      </div>         
+      <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">
+        <img alt="Licencia de Creative Commons" style="width:100px !important;" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+      </a>
+
+
+      <div  style="margin-right: 40px;display:block; align-items:center">  
+
+        <a href="https://www.facebook.com/profile.php?id=100081292145231" target="_blank"  class="mr-6 text-white">
           <i class=" fa-brands fa-facebook fa-lg"></i>
         </a>
-        <a href="https://twitter.com/FutbolMasterEmp" target="_blank" style="margin-right: 50px;" class="mr-6 text-white">
+        <a href="https://twitter.com/FutbolMasterEmp" target="_blank" class="mr-6 text-white">
           <i class="fa-brands fa-twitter fa-lg"></i>
         </a>
-        <a href="https://www.instagram.com/futbolmasterfc/" target="_blank" style="margin-right: 50px;" class="mr-6 text-white">
+        <a href="https://www.instagram.com/futbolmasterfc/" target="_blank"  class="mr-6 text-white">
           <i class="fa-brands fa-instagram fa-lg"></i>
         </a>
-        <a href="https://www.linkedin.com/in/fútbol-máster-05564223a/" target="_blank" style="margin-right: 50px;" class="mr-6 text-white">
+        <a href="https://www.linkedin.com/in/fútbol-máster-05564223a/" target="_blank"  class="mr-6 text-white">
           <i class="fa-brands fa-linkedin-in fa-lg"></i>
         </a>
       </div>

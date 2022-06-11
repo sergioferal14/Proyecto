@@ -1,5 +1,5 @@
 <x-guest-layout>
-<div class="font-sans antialiased z-10" style="zoom:85% !important">
+<div class="font-sans antialiased " style="zoom:85% !important;">
     <x-jet-authentication-card>
         
         <x-jet-validation-errors class="mb-4" />

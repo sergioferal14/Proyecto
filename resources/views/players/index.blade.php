@@ -1,7 +1,7 @@
 <x-app-layout>
     
     <div class="mt-4 max-w-7xl mx-auto sm:px-6 lg:px-8 container" style="border-radius:10px;" >
-    <a href="{{route('players.excel',$team)}}"
+    <a 
         class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded border-3 ">
         Exportar a Excel<i class="fa-solid fa-file-excel ml-2"></i></a>
 

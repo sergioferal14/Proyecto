@@ -171,12 +171,12 @@ class PlayerController extends Controller
 
     }
 
-    public function export(Team $team){
+    // public function export(Team $team){
         
-        $jugadores=Player::where('team_id',$team->id)
-        ->select('id','nombre', 'apellidos','posicion','dorsal','edad','peso','altura','observaciones','created_at','updated_at')
-        ->get();
-        return Excel::download(new ProductsExport($jugadores),'jugadores.xlsx');
-    }
+    //     $jugadores=Player::where('team_id',$team->id)
+    //     ->select('id','nombre', 'apellidos','posicion','dorsal','edad','peso','altura','observaciones','created_at','updated_at')
+    //     ->get();
+    //     return Excel::download(new ProductsExport($jugadores),'jugadores.xlsx');
+    // }
     
 }

@@ -1,5 +1,5 @@
 <x-guest-layout>
-<div class="font-sans antialiased ">
+<div class="font-sans antialiased z-10">
     <x-jet-authentication-card>
         <x-slot name="logo">
         </x-slot>

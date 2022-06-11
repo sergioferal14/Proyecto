@@ -22,6 +22,14 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
         <style>
+          @media(max-width:500px){
+
+            .ocultar{
+              z-index: -1;
+            }
+
+            
+        }
           .fondo {
         font-family: 'Nunito', sans-serif;
         background-image: url("{{asset('storage/fondo.jpg')}}");
@@ -48,7 +56,7 @@
         <div class="font-sans antialiased " >
             {{ $slot }}
         </div>
-        <footer class=" flex  fixed bottom-0 mr-4 z-10 text-center position-absolute bg-gray-900 text-white py-4 " style="justify-content:space-between;width: 100%;">
+        <footer class=" flex  fixed bottom-0 mr-4 ocultar text-center position-absolute bg-gray-900 text-white py-4 " style="justify-content:space-between;width: 100%;">
       <div style="align-items: center; display:flex; margin-left:20px;">
         <span>
           

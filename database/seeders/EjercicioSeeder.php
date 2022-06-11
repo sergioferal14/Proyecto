@@ -154,23 +154,6 @@ class EjercicioSeeder extends Seeder
             'material'=>'Chinos y Balones',
         ]);
 
-        Ejercicio::create([
-            'sesion_id'=>"5",
-            'user_id'=>"1",
-            'estado'=>"2",
-            'tipo_id'=>"5",
-            'nombre'=>"Finalizaciones segun sistema",
-            'img'=>'ejercicios/finalizaciones1.png',
-            'descripcion'=>"- Hacer finalizacion por lado fuerte + Lateralizacion
-
-            -Llevar a lado fuerte + llevar a lado debil + atacar el espacio muerto
-            
-            -Lado fuerte + llevar a lado debil + toma de decsion del extremo, que tiene la posibilidad de centrar o jugar con interior
-            ",
-            'njugadores'=>"15",
-            'tiempo'=>'12m',
-            'material'=>'Chinos y Balones',
-        ]);
 
         Ejercicio::create([
             'sesion_id'=>"4",

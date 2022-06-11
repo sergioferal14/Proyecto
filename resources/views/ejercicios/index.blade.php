@@ -168,7 +168,7 @@
 
                             <div class="grid-ejercicio" style="padding: 0;">
                                 <div class=" p-2 imagen">
-                                    <img src="{{ asset('storage/' . $item->img) }}" style="width: 450px; height:220px;" class="mx-auto">
+                                    <img src="{{ asset('storage/'.$item->img) }}" style="width: 450px; height:220px;" class="mx-auto">
                                 </div>
                                 <div class="p-2 descripcion" style="width: 400px;height:210px !important;">
                                     <div class="text-lg flex flex-row justify-center text-center mx-auto mb-1" style="background-color: #0288d1;color:white;">

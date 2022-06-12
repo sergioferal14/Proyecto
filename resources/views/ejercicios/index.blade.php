@@ -30,9 +30,9 @@
             <div class="my-2 mb-5 mx-auto" style="text-align: center; ">
                 @endif
 
-                <div class="mx-auto">
+                <div class="mx-auto mb-2">
                     @if (isset($sesion))
-                    <button onclick="cargarPDF()" class="ml-2 bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded border-3 ">
+                    <button onclick="cargarPDF()" class="ml-2 mb-2 bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded border-3 ">
                         Exportar {{$sesion->nombre}} a PDF <i class="ml-2 fa-solid fa-file-pdf"></i>
                     </button>
                     @endif
@@ -180,7 +180,7 @@
                                     </div>
                                 </div>
 
-                                <div style="border:solid 1px #0288d1;" class=" rounded p-2 formulario">
+                                <div style="border:solid 1px #0288d1;" class="separador rounded p-2 formulario">
                                     <div style=" padding: 10px; display:flex; " class="flex sm:flex-col md:flex-row justify-center text-center mx-auto">
                                         <div class="grid-formulario" style="align-items: center;padding: 0;margin-right:5px">
                                             <div class="div1 mr-1">
@@ -306,14 +306,16 @@
 
 
                         <!--Aqui termina el ejercicio -->
+                        <div style="text-align: center;">
                         @if(isset($sesion))
                         @else
                         @if ($ejercicios->count() > 0)
-                        <div class="mt-2 mx-auto col-span-4 pagination-lg" style="width:100%;display:block; text-align:center !important; margin-left:25% !important;">
+                        <div class="mt-2 mx-auto col-span-4 " style="width:100%;display:block; text-align:center !important; margin-left:25% !important;">
                             {{ $ejercicios->links() }}
                         </div>
                         @endif
                         @endif
+                        </div>
                         <!--Aqui termina el contenedor de los ejercicios-->
                     </div>
 

@@ -63,9 +63,12 @@
             }
 
             
+            
         }
         @media(max-width:1000px){
-            
+            .separador{
+                margin-top: 20px;
+            }
             .imgPlayer{
                 width:80px !important;
                 height:80px !important;

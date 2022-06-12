@@ -64,7 +64,7 @@
                         {{$user->email}}
                         </td>
                         <td class="px-6 py-3 whitespace-nowrap text-base font-medium text-gray-900">
-                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full text-white
+                        <span  wire:click="cambiarEstado({{$user}})" class=" cursor-pointer px-2 inline-flex text-xs leading-5 font-semibold rounded-full text-white
                                         @if ($user->email_verified_at) bg-green-500  @else bg-red-500 @endif">
                                                 @if ($user->email_verified_at)
                                                 Verificado

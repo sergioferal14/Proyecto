@@ -18,9 +18,9 @@ class UserSeeder extends Seeder
     {
         User::create([
             'id'=>'1',
-            'name'=>'Sergio',
+            'name'=>'Sergio Fernandez',
             'email'=>'sergioferal@hotmail.es',
-            'password'=>Hash::make('Vissum-12'),
+            'password'=>Hash::make('prueba1234'),
             'email_verified_at'=>'2022-05-08 10:33:26',
             'profile_photo_path'=>'avatar.png'
         ]);

@@ -57,6 +57,13 @@ class Showuser extends Component
         $this->emit('borrar', 'Usuario Borrado');
 
     }
+
+    public function cambiarEstado(user $user){
+        $this->user=$user;
+        $this->user->email_verified_at= now();
+        $this->user->save();
+        
+    }
     
     
 }

@@ -25,7 +25,7 @@
                     <th scope="col" class="text-base font-medium text-white px-6 py-3">
                             Foto
                         </th>
-                        <th scope="col" class="text-base font-medium text-white px-6 py-3 cursor-pointer" wire:click="ordenarPor('id')">
+                        <th scope="col" class="whitespace-nowrap text-base font-medium text-white px-6 py-3 cursor-pointer" wire:click="ordenarPor('id')">
                             ID <i class="fas fa-sort"></i>
                         </th>
                         <th scope="col" class="text-base font-medium text-white px-6 py-3 cursor-pointer" wire:click="ordenarPor('name')">

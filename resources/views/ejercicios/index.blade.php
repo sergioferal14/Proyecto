@@ -161,7 +161,7 @@
                                 @if (isset($sesion))
                                 <img src="{{ asset('storage/' . $item->sesion->team->escudo) }}" class="mr-3 h-12 mx-auto my-auto flex-end" style="width:60px;height:60px">
                                 @else
-                                <img src=" @if (isset($item->user->profile_photo_path)) {{ asset('storage/' . $item->user->profile_photo_path) }} @else {{ asset('storage/players/avatar.png') }} @endif" class="mr-3 h-12 mx-auto my-auto flex-end rounded-full object-cover w-10 h-10">
+                                <img src=" @if (isset($item->user->profile_photo_path)) {{ asset('storage/' . $item->user->profile_photo_path) }} @else {{ $item->user->profile_photo_url }} @endif" class="mr-3 h-12 mx-auto my-auto flex-end rounded-full object-cover w-10 h-10">
                                 @endif
 
                             </div>

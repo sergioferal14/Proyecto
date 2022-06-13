@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('apellidos');
             $table->enum('posicion', ['Delantero','Centrocampista','Defensa','Portero']);
-            $table->integer('dorsal')->unique();
+            $table->integer('dorsal');
             $table->integer('edad');
             $table->integer('peso');
             $table->integer('altura');

@@ -35,7 +35,7 @@
                 <!-- Modal body -->
                 <div class="grid-ejercicio" style="padding: 0;">
                     <div class=" p-2 imagen">
-                        <img src="{{ asset('storage/ejercicios/noimage.jpg') }}" style="width: 450px; height:220px;"
+                        <img src="{{ asset('storage/ejercicios/noimage.jpg') }}" style="width: 400px; height:220px;"
                             class="mx-auto" id="foto">
                         <label for="img"
                             class="btn  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded lg:whitespace-nowrap roundecontrol mt-2"

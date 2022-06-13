@@ -2,7 +2,6 @@
 
 <form id="formEditar" action="{{ route('ejercicio.update', $item) }}" method="POST" enctype="multipart/form-data">
     @csrf
-    
     <!--Comienzo ventana-->
     <div style="zoom: 90%; visibility:visible" id="modalEditar{{$item->id}}" role="dialog" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden rounded fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
@@ -38,12 +37,8 @@
                 <div class="grid-ejercicio" style="padding: 0;">
                     <div class=" p-2 imagen">
                         <img src="{{ asset('storage/' . $item->img) }}" style="width: 450px; height:220px;"
-                            class="mx-auto" id="foto">
-                        <label for="img"
-                            class="btn  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded lg:whitespace-nowrap roundecontrol mt-2"
-                            style=" width:50%"><i class="fas fa-plus"></i>Añadir Foto
-                            <input type="file" style="display: none" name="img" id="img" accept="image/*">
-                        </label>
+                            class="mx-auto" id="foto{{$item->id}}">
+                        <input class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold  rounded lg:whitespace-nowrap roundecontrol mt-2" style="width:70%;" type="file"  name="img{{$item->id}}" id="img{{$item->id}}" accept="image/*">
                     </div>
                     <div class="p-2 mx-auto descripcion" style="width: 400px;height:210px !important;">
                         <div class="text-lg flex flex-row justify-center text-center mx-auto mb-1"
@@ -249,13 +244,14 @@
     <!--Fin Vnetana-->
     <script>
         //Cambiar imagen 
-        document.getElementById("img").addEventListener('change', cambiarImagen);
+        document.getElementById("img{{$item->id}}").addEventListener('change', cambiarImagen);
 
         function cambiarImagen(event) {
+            console.log("hola");
             var file = event.target.files[0];
             var reader = new FileReader();
             reader.onload = (event) => {
-                document.getElementById("foto").setAttribute('src', event.target.result)
+                document.getElementById("foto{{$item->id}}").setAttribute('src', event.target.result)
             };
             reader.readAsDataURL(file);
         }

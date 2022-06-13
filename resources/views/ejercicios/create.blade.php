@@ -36,7 +36,7 @@
                 <div class="grid-ejercicio" style="padding: 0;">
                     <div class=" p-2 imagen">
                         <img src="{{ asset('storage/ejercicios/noimage.png') }}" style="width: 400px; height:220px;"
-                            class="mx-auto" id="foto">
+                            class="mx-auto" name="foto" id="foto">
                         <label for="img"
                             class="btn  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded lg:whitespace-nowrap roundecontrol mt-2"
                             style="@if(!isset($sesion)) margin-left:25%; @endif width:50%"><i class="fas fa-plus"></i>Añadir Foto

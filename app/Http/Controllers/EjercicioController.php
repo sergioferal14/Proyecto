@@ -182,7 +182,7 @@ class EjercicioController extends Controller
         
         if($request->file('img')){
             
-            if($ejercicio->img!='ejercicios/noimage.jpg'){
+            if($ejercicio->img!='ejercicios/noimage.png'){
                 Storage::delete($ejercicio->img);
             }                          
 
@@ -215,7 +215,7 @@ class EjercicioController extends Controller
     public function destroy(Ejercicio $ejercicio)
     {
         
-        if(basename($ejercicio->img)!='noimage.jpg'){
+        if(basename($ejercicio->img)!='noimage.png'){
             Storage::delete($ejercicio->img);   
            }
 

@@ -26,9 +26,9 @@ class UserSeeder extends Seeder
 
         User::create([
             'id'=>'2',
-            'name'=>'Martin Pedraza',
-            'email'=>'martinpedraza@gmail.com',
-            'password'=>Hash::make('Vissum-12'),
+            'name'=>'Irene Fernandez',
+            'email'=>'ireneferal@hotmail.es',
+            'password'=>Hash::make('prueba1234'),
             'email_verified_at'=>'2022-05-08 10:33:26',
         ]);
     }

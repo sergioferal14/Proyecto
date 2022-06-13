@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('ejercicios', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('img')->default('ejercicios/noimage.jpg');
+            $table->string('img')->default('ejercicios/noimage.png');
             $table->text('descripcion');
             $table->integer('njugadores');
             $table->enum('estado', [1, 2])->default(1); //1 privado, 2 publicado

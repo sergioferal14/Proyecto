@@ -51,7 +51,7 @@
                     @endif
                     
                     <td class="px-6 py-2 whitespace-nowrap text-base font-medium text-gray-900">
-                          <img class=" object-cover w-14 h-14 rounded-full" src="{{ asset('storage/' . $user->profile_photo_path) }}">  
+                          <img class=" object-cover w-14 h-14 rounded-full" src=" @if($user->profile_photo_path) {{asset('storage/'.$user->profile_photo_path) }} @else {{ $user->profile_photo_url }} @endif">  
                         
                     </td>
                     <td class="px-6 py-3 whitespace-nowrap text-base font-medium text-gray-900">

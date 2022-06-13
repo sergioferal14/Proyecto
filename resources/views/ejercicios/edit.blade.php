@@ -2,8 +2,9 @@
 
 <form id="formEditar" action="{{ route('ejercicio.update', $item) }}" method="POST" enctype="multipart/form-data">
     @csrf
+    
     <!--Comienzo ventana-->
-    <div style="zoom: 90%; visibility:visible" id="modalEditar" role="dialog" tabindex="-1" aria-hidden="true"
+    <div style="zoom: 90%; visibility:visible" id="modalEditar{{$item->id}}" role="dialog" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden rounded fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
         <div class="relative p-4 w-full max-w-5xl h-full md:h-auto">
             <!-- Modal content -->

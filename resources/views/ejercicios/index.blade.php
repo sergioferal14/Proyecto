@@ -139,8 +139,8 @@
                                     <select name="tipo_id" class="ml-2 py-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full  sm:text-sm border-gray-300 rounded-md">
                                         <option value="-10" class="text-base font-bold" @if ($request->tipo_id == -10) class="text-base font-bold" selected @endif>
                                             Cualquiera...</option>
-                                        @foreach ($tipos as $item)
-                                        <option value="{{ $item->id }}" class="text-base font-bold" @if ($item->id == $request->tipo_id) selected @endif>{{ $item->nombre }}
+                                        @foreach ($tipos as $tipoFiltro)
+                                        <option value="{{ $tipoFiltro->id }}" class="text-base font-bold" @if ($tipoFiltro->id == $request->tipo_id) selected @endif>{{ $tipoFiltro->nombre }}
                                         </option>
                                         @endforeach
                                     </select>
@@ -248,7 +248,7 @@
                                                 </div>
                                                 <div style="padding-top: 10px;grid-template-columns: 6em 1fr;align-items: center; display:flex">
                                                     <div>
-                                                        <label for="created_at" class="mr-1"><b>Estado:</b></label>
+                                                        <label for="estado" class="mr-1"><b>Estado:</b></label>
                                                     </div>
                                                     <div>
                                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full text-white
@@ -264,8 +264,9 @@
                                             </div>
 
                                             @if ($item->user_id == auth()->user()->id)
+
                                             <div class=" mr-1 my-2">
-                                                <button id="botonEditar" data-modal-toggle="modalEditar" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-3  rounded mx-auto lg:whitespace-nowrap" style="width:50%;">
+                                                <button id="botonEditar" data-modal-toggle="modalEditar{{$item->id}}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-3  rounded mx-auto lg:whitespace-nowrap" style="width:50%;">
                                                     <i class="mr-1 fa-solid fa-edit"></i><span class=" icono">Editar</span></button>
                                                 @include('ejercicios.edit')
                                             </div>

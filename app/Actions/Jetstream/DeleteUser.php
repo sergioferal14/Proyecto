@@ -14,7 +14,10 @@ class DeleteUser implements DeletesUsers
      */
     public function delete($user)
     {
-        $user->deleteProfilePhoto();
+        if($user->profile_photo_path != 'avatar.png'){
+            $user->deleteProfilePhoto();
+        }
+        
         $user->tokens->each->delete();
         $user->delete();
     }

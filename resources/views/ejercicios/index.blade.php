@@ -287,6 +287,17 @@
                                                 </form>
                                             </div>
                                             @endif
+
+                                            @else
+                                            @if (isset($sesion))
+                                            <div class=" mr-1 my-2">
+                                                <form action="{{ route('ejercicios.quitar', $item) }}" method="GET" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-3 rounded mx-auto lg:whitespace-nowrap" style="width:50%;" onclick="return confirm('Quitar el ejercicio {{ $item->nombre }} de la sesion {{ $sesion->nombre }}?')">
+                                                        <i class="fa-solid fa-right-from-bracket"></i><span class="ml-1 icono">Quitar</span></button>
+                                                </form>
+                                            </div>
+                                            @endif
                                             @endif
 
                                         </div>

@@ -22,7 +22,6 @@ class UserSeeder extends Seeder
             'email'=>'sergioferal@hotmail.es',
             'password'=>Hash::make('prueba1234'),
             'email_verified_at'=>'2022-05-08 10:33:26',
-            'profile_photo_path'=>'avatar.png'
         ]);
 
         User::create([
@@ -31,7 +30,6 @@ class UserSeeder extends Seeder
             'email'=>'martinpedraza@gmail.com',
             'password'=>Hash::make('Vissum-12'),
             'email_verified_at'=>'2022-05-08 10:33:26',
-            'profile_photo_path'=>'avatar.png'
         ]);
     }
 }

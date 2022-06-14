@@ -137,7 +137,7 @@ class PlayerController extends Controller
                 'foto'=>['nullable', 'image'],
                 'btnAccion'=>['nullable']
             ]);
-            
+                    $player->update($request->all());
                 if($request->file('foto')){
 
                         if($player->foto!='players/avatar.png'){
@@ -151,10 +151,10 @@ class PlayerController extends Controller
                             $player->update([
                                 'foto'=>$urlBuena
                             ]);
-                }else {
+                }
                 
-                $player->update($request->all());
-            }
+                
+            
             
             
             return redirect()->route('players.index',$player->team_id)->with('crear', "Jugador Editado con exito.");

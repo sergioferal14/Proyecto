@@ -190,6 +190,7 @@ class EjercicioController extends Controller
                 $urlBuena = "ejercicios/".time()."_".$file->getClientOriginalName();
 
                 Storage::disk("public")->put($urlBuena, \File::get($file));
+                $ejercicio->update($request->all());
                 $ejercicio->update([
                     'img'=>$urlBuena
                 ]);

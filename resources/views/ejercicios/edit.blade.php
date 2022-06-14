@@ -149,11 +149,11 @@
                                                 <div class=" mx-auto form-check">
                                                     @if ($item->estado == 1)
                                                         <input
-                                                            class="radio form-check-input  rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                                                            class="radio form-check-input  rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600  focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                                                             type="radio" name="estado" id="estado" value="1" checked>
                                                     @else
                                                         <input
-                                                            class="radio form-check-input  rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                                                            class="radio form-check-input  rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600  focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                                                             type="radio" name="estado" id="estado" value="1">
                                                     @endif
                                                     <label class="form-check-label inline-block text-gray-800">
@@ -162,12 +162,12 @@
                                                 </div>
                                                 <div class="mx-auto form-check">
                                                     @if ($item->estado == 2)
-                                                        <input
-                                                            class="radio form-check-input  rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                                                        <input 
+                                                            class=" radio form-check-input  rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600  focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                                                             type="radio" name="estado" id="estado" value="2" checked>
                                                     @else
                                                         <input
-                                                            class="radio form-check-input  rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                                                            class="radio form-check-input  rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600  focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                                                             type="radio" name="estado" id="estado" value="2">
                                                     @endif
                                                     <label class="form-check-label inline-block text-gray-800">

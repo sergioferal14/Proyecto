@@ -20,9 +20,9 @@
 
         <x-tabla>
             <table class="min-w-full text-center mt-4">
-                <thead class="border-b bg-gray-800">
+                <thead class=" bg-gray-800" >
                     <tr>
-                    <th scope="col" class="text-base font-medium text-white px-6 py-3">
+                    <th scope="col" class="text-base font-medium text-white px-6 py-3" style="border-radius: 10px 0px 0px 0px;">
                             Foto
                         </th>
                         <th scope="col" class="whitespace-nowrap text-base font-medium text-white px-6 py-3 cursor-pointer" wire:click="ordenarPor('id')">
@@ -37,7 +37,7 @@
                         <th scope="col" class="text-base font-medium text-white px-6 py-3">
                             Estado
                         </th>
-                        <th scope="col" class="text-base font-medium text-white px-6 py-3">
+                        <th scope="col" class="text-base font-medium text-white px-6 py-3" style="border-radius: 0px 10px 0px 0px;">
                             Borrar
                         </th>
                     </tr>

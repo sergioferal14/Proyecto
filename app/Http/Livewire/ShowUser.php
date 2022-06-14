@@ -48,9 +48,9 @@ class Showuser extends Component
 
     public function borrar(user $user){
         //1.- Borro el archivo de imagen
-        if(basename($user->profile_photo_path)!='avatar.png'){
+        if($user->profile_photo_path){
             Storage::delete($user->profile_photo_path);   
-           }
+        }
         
         //Borro el user
         $user->delete();

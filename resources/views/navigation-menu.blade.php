@@ -166,7 +166,7 @@
             <div class="flex items-center px-4">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                     <div class="shrink-0 mr-3">
-                        <img class="h-10 w-10 rounded-full object-cover" src="{{asset('storage/'.Auth::user()->profile_photo_path) }}" alt="{{ Auth::user()->name }}" />
+                        <img class="h-10 w-10 rounded-full object-cover" src=" @if(Auth::user()->profile_photo_path) {{asset('storage/'.Auth::user()->profile_photo_path) }} @else {{ Auth::user()->profile_photo_url }} @endif" alt="{{ Auth::user()->name }}" />
                     </div>
                 @endif
 

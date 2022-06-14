@@ -48,7 +48,7 @@ class EjercicioController extends Controller
         $tipos=TiposEjercicio::orderBy('nombre')->get();
         $ejerciciosPublicos=Ejercicio::orderBy('created_at')->where('estado',2);
         $ejercicios=Ejercicio::orderBy('created_at')->where('estado',2)
-        ->tipoId($request->tipo_id)->paginate(3);
+        ->tipoId($request->tipo_id)->busqueda($request->busqueda)->paginate(3);
         //$ejerciciosCont=Ejercicio::orderBy('created_at')->where('user_id',auth()->user()->id)->get()->groupBy('tipo_id');
         
 

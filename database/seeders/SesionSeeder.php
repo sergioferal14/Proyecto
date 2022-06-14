@@ -64,12 +64,6 @@ class SesionSeeder extends Seeder
             'team_id'=>"2",
             'user_id'=>"1"
         ]);
-        Sesion::create([
-            'id'=>'8',
-            'nombre'=>"Sesion60",
-            'fecha'=>"2022-06-05",
-            'team_id'=>"1",
-            'user_id'=>"1"
-        ]);
+        
     }
 }

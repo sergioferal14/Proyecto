@@ -7,7 +7,7 @@
                 <div class="shrink-0 flex items-center">
                     <a href="{{route('dashboard')}}" class="flex items-center">
                         <img src="{{ asset('storage/balon-logo.png') }}" class="mr-3 h-6 sm:h-9"/>
-                        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Fútbol Máster</span>
+                        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">{{ __('Futbol Master') }}</span>
                     </a>
                 </div>
 

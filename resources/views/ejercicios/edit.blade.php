@@ -38,7 +38,7 @@
                     <div class=" p-2 imagen">
                         <img src="{{ asset('storage/' . $item->img) }}" style="width: 450px; height:220px;"
                             class="mx-auto" id="foto{{$item->id}}">
-                        <input class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold  rounded lg:whitespace-nowrap roundecontrol mt-2" style="width:70%;" type="file"  name="img{{$item->id}}" id="img{{$item->id}}" accept="image/*">
+                        <input class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold  rounded lg:whitespace-nowrap roundecontrol mt-2" style="width:70%;" type="file"  name="img" id="img{{$item->id}}" accept="image/*">
                     </div>
                     <div class="p-2 mx-auto descripcion" style="width: 400px;height:210px !important;">
                         <div class="text-lg flex flex-row justify-center text-center mx-auto mb-1"
